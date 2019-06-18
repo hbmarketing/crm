@@ -1,11 +1,24 @@
 import os
-from flask import Flask, url_for, render_template
+
+from flask import Flask, url_for
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
+from config import Config
 
 app = Flask(__name__)
+app.config.from_object(Config)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+from models import *
+
+#контекст оболочки flask shell
+@app.shell_context_processor
+def make_shell_context():
+    return {'db': db, 'Company': Company}
+
+import routes
 
 
 #   SNIPPET FOR CAESH   #

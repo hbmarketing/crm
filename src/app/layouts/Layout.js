@@ -7,8 +7,8 @@ import Statistic from '../pages/Statistic';
 export default class Layout extends React.Component {
     render () {
 
-        console.log('PROPSES')
-        console.log(this.state)
+        // console.log('PROPSES')
+        // console.log(this.state)
 
         return (
             <div>
@@ -29,10 +29,10 @@ export default class Layout extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        stateAll: state
-    }
-}
+// function mapStateToProps(state) {
+//     return {
+//         stateAll: state
+//     }
+// }
 
-export default connect(mapStateToProps)(Layout)
+// export default connect(mapStateToProps)(Layout)
